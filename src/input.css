@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'inter',sans-serif;
+}
+
+.navbar-fixed {
+    @apply fixed z-[9999] bg-white bg-opacity-70 dark:bg-dark dark:bg-opacity-50;
+    backdrop-filter: blur(5px);
+    box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, 0.2);
+}
+.hamburger-line {
+    @apply w-[30px] h-[2px] my-2 block bg-black dark:bg-white;
+}
+
+.hamburger-active > span:nth-child(1){
+    @apply rotate-45;
+}
+
+.hamburger-active > span:nth-child(2){
+    @apply scale-0;
+}
+
+.hamburger-active > span:nth-child(3){
+    @apply -rotate-45;
+}
+
+.inner{
+    padding-top: 20px;
+}
+
+.header{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    padding: 1rem;
+    position: relative;
+}
+
+.header::after{
+    content: '';
+    position: absolute ;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 100px;
+}
+
+.container1 {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    grid-gap: 1rem;
+    padding: 1rem 80px;
+    font-size: 1.2rem;
+}
+
+.skill-box{
+    padding: 1rem;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.skill-box:hover > .skill-title:after, .skill-box:hover > .skill-title:before {
+    width: 35px;
+} 
+
+.skill-box:hover .img{
+    transform: translateY(-10px);
+}
+
+.skill-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.skill-title:after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    width: 0;
+    height: 4px;
+    border-radius: 2px 0 0 2px;
+    transition: .5s;
+}
+
+.skill-title:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 35px;
+    height: 4px;
+    border-radius: 0 2px 2px 0;
+    transition: .5s;
+}
+
+.img{
+    width: 90px;
+    height: 90px;
+    position: relative;
+    border-radius: 45px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+}
+
+
+
+.skill-title h3{
+    color: rgb(0, 0, 0);
+    margin-top: 0.5rem;
+
+}
+
+.skill-icon{
+    width: 50px;
+    z-index: 2;
+}
+
+@media screen and (max-width:990px) {
+    .container1{
+        grid-template-columns: repeat(2, 1fr);
+        padding: 2rem 50px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .container1{
+        grid-template-columns: 1fr;
+    }
+}
+
+#dark:checked ~ label div.toggle-circle {
+    @apply translate-x-3;
+}
+  
+.ml2 .letter {
+    display: inline-block;
+    line-height: 1em;
+}
